@@ -26,7 +26,7 @@ module.exports = {
         failOnError: true,
         // deprecated options and their defaults:
         base64Width: 20,
-        forceBase64Format: ``, // valid formats: png,jpg,webp
+        forceBase64Format: `jpg`, // valid formats: png,jpg,webp
         useMozJpeg: process.env.GATSBY_JPEG_ENCODER === `MOZJPEG`,
         stripMetadata: true,
         defaultQuality: 50,
@@ -63,26 +63,34 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "images",
-        path: `${__dirname}/src/images/`,
+        name: "blog",
+        path: `${__dirname}/src/blog/`,
       },
-      __key: "images",
+      __key: "blog",
     },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "pages",
-        path: `${__dirname}/src/pages/`,
-      },
-      __key: "pages",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "posts",
-        path: `${__dirname}/src/posts/`,
-      },
-      __key: "posts",
-    },
+    // {
+    //   resolve: "gatsby-source-filesystem",
+    //   options: {
+    //     name: "images",
+    //     path: `${__dirname}/src/images/`,
+    //   },
+    //   __key: "images",
+    // },
+    // {
+    //   resolve: "gatsby-source-filesystem",
+    //   options: {
+    //     name: "pages",
+    //     path: `${__dirname}/src/pages/`,
+    //   },
+    //   __key: "pages",
+    // },
+    // {
+    //   resolve: "gatsby-source-filesystem",
+    //   options: {
+    //     name: "posts",
+    //     path: `${__dirname}/src/posts/`,
+    //   },
+    //   __key: "posts",
+    // },
   ],
 };

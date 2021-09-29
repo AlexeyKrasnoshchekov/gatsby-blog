@@ -1,10 +1,12 @@
 export default {
     fonts: {
-        main: "",
+        main: "limelight",
         code: "",
     },
     colors: {
-        main1: ""
+        main1: "red",
+        main2: "blue",
+        light1: "lightgrey"
     },
     breakpoints: {
         mobile: "only screen and (max-widthL 50rem)",
