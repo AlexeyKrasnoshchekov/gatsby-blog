@@ -1,47 +1,45 @@
-// export.createPages = async ({actions. graphql}) => {
-//     const {data} = await graphql`
-//         query {
-//             allMdx(sort: {fields: rawBody, order: ASC}) {
-//                 edges {
-//                   node {
-//                     frontmatter {
-//                       slug
-//                     }
-//                     id
-//                   }
-//                 }
-//             }
-//         }
-//     `
-//     // create paginated pages for posts
+const path = require(`path`)
 
-//     const postPerPage = 3;
+// Create blog pages dynamically
+exports.createPages = async ({ graphql, actions }) => {
+    const { createPage } = actions
+    const productTemplate = path.resolve(`src/templates/SingleProduct.js`);
+    // const pageTemplate = path.resolve(`src/templates/PageTemplate.js`);
+    const {data} = await graphql(`
+      query SlugsQuery{
+        allMdx(filter: {fileAbsolutePath: {regex: "/src/products/"}}) {
+          nodes {
+            slug
+          }
+        }
+      }
+    `)
 
-//     const numPages = Math.ceil(data.allMdx.edges.length / postPerPage);
+    console.log('dataNode', data);
 
+    // const productPerPage = 3;
+    // const numPages = Math.ceil(result.allMdx.nodes.length / productPerPage);
 
-//     Array.from({length: numPages }).forEach((_, index) => {
-//         actions.createPages({
-//             path: index === 0 ? '/' : `/${index + 1}`,
-//             component: require.resolve("./src/templates/allPosts.js"),
-//             context: {
-//                 limit: postPerPage,
-//                 skip: index * postPerPage,
-//                 numPages,
-//                 currentPage: i + 1,
-//             }
-//         })
-//     })
-
-//     //create single blogpost
-//     data.allMdx.edges.forEach(edge => {
-//         const slug = edge.node.frontmatter.slug;
-//         const id = edge.node.id;
-//         actions.createPages({
-//             path: slug,
-//             component: require.resolve(`./src/templates/singlePost.js`),
-//             context: {id}
-//         })
-//     })
-
-// }
+    // // page with paginated posts
+    // Array.from({ length: numPages }).forEach((_, index) => {
+    //     createPage({
+    //         path: index === 0 ? `/` : `/${index + 1 }`,
+    //         component: pageTemplate,
+    //         context: {
+    //           limit: productPerPage,
+    //           skip: index * productPerPage,
+    //           numPages,
+    //           currentPage: index + 1
+    //         },
+    //       })
+    // })
+    
+    // single post
+    data.allMdx.nodes.forEach(node => {
+      createPage({
+        path: `/products/${node.slug}`,
+        component: productTemplate,
+        context: {slug: node.slug}
+      })
+    })
+  }

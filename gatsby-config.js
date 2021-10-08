@@ -6,6 +6,7 @@ module.exports = {
   plugins: [
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
+    `gatsby-plugin-styled-components`,
     "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-plugin-manifest",
@@ -18,18 +19,18 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
-      resolve: `gatsby-plugin-sharp`,
+      resolve: "@chakra-ui/gatsby-plugin",
       options: {
-        // Defaults used for gatsbyImageData and StaticImage
-        defaults: {},
-        // Set to false to allow builds to continue on image errors
-        failOnError: true,
-        // deprecated options and their defaults:
-        base64Width: 20,
-        forceBase64Format: `jpg`, // valid formats: png,jpg,webp
-        useMozJpeg: process.env.GATSBY_JPEG_ENCODER === `MOZJPEG`,
-        stripMetadata: true,
-        defaultQuality: 50,
+        /**
+         * @property {boolean} [resetCSS=true]
+         * if false, this plugin will not use `<CSSReset />
+         */
+        resetCSS: true,
+        /**
+         * @property {boolean} [isUsingColorMode=true]
+         * if false, this plugin will not use <ColorModeProvider />
+         */
+        isUsingColorMode: true,
       },
     },
     {
@@ -67,6 +68,14 @@ module.exports = {
         path: `${__dirname}/src/blog/`,
       },
       __key: "blog",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "products",
+        path: `${__dirname}/src/products/`,
+      },
+      __key: "products",
     },
     // {
     //   resolve: "gatsby-source-filesystem",

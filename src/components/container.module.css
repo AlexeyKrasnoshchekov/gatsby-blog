@@ -1,0 +1,10 @@
+.container {
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+.mainPageImage{
+    max-width: 600px;
+}

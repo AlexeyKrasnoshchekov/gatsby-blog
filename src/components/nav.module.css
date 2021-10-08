@@ -1,0 +1,27 @@
+.navContainer {
+    outline: 2px solid black;
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr 100px;
+}
+.navLogo {
+    grid-column: 2 / span 1;
+}
+.navMenu {
+    grid-column: 3 / span 1;
+    /* align-items: center; */
+    justify-items: space-between;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+  }
+  .nav-link-item {
+    padding-right: 2rem;
+  }
+  .nav-link-text {
+    color: black;
+  }
+  .heading {
+    color: rebeccapurple;
+  }
