@@ -5,7 +5,6 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 const SingleProduct = ({data}) => {
-    // console.log('data', data);
   const image = getImage(data.mdx.frontmatter.hero_image);
 
   return (

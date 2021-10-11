@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { cardContainer } from './card.module.css'
 import { Link } from 'gatsby'
-import { StaticImage, getImage } from 'gatsby-plugin-image'
+// import { StaticImage, getImage } from 'gatsby-plugin-image'
 import { Box, Heading, Text, Button } from '@chakra-ui/react'
 
 export const Card = ({title, date}) => {

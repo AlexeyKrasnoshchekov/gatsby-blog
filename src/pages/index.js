@@ -9,8 +9,8 @@ import {
 
 import Container from "../components/Container";
 import Card from "../components/Card";
-import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
-import { graphql, Link } from "gatsby";
+// import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
+import { graphql } from "gatsby";
 import { mainPageImage, imageContainer, arrowLeft, arrowRight } from "../components/container.module.css";
 import {
   loadImage,

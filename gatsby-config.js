@@ -14,6 +14,12 @@ module.exports = {
         icon: "src/images/icon.png",
       },
     },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+      },
+    },
     "gatsby-transformer-remark",
     "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
@@ -34,22 +40,20 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-mdx",
+      resolve: `gatsby-transformer-remark`,
       options: {
-        extentions: [
-          '.md', '.mdx'
-        ],
-        gatsbyRemarkPlugins: [
+        plugins: [
           {
-            resolve: 'gatsby-remark-images',
+            resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1035,
-              sizeByPixelDensity: true,
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 590,
             },
-          }
-        ]
+          },
+        ],
       },
-      __key: "images",
     },
     {
       resolve: `gatsby-plugin-google-fonts`,
