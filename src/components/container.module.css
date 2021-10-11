@@ -6,5 +6,16 @@
     padding-right: 15%;
 }
 .mainPageImage{
-    max-width: 600px;
+    width: 600px;
+    min-height: 500px;
+}
+.imageContainer{
+    display: flex;
+  justify-content: space-between;
+  min-width: 650px;
+}
+.arrowLeft,
+.arrowRight {
+    height: 75px;
+    align-self: center;
 }

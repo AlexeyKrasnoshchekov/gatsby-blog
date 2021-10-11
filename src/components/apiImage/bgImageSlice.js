@@ -2,7 +2,7 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 // import Data from "../../data/weatherAPI";
 const MyAccessKey = 'xjVDU29JVcBNRW4ZmdS69hKLe0GUlcSMNt9qEZKN4sg';
 console.log('MyAccessKey', MyAccessKey);
-const API_URL = `https://api.unsplash.com/photos/random/?client_id=${MyAccessKey}&orientation=landscape&count=5`;
+const API_URL = `https://api.unsplash.com/photos/random/?client_id=${MyAccessKey}&orientation=portrait&count=5`;
 
 const initialState = {
     images: [],

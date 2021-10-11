@@ -1,4 +1,6 @@
 import React from 'react';
+import { store } from './src/app/store';
+import { Provider } from 'react-redux';
 import {createGlobalStyle, ThemeProvider} from "styled-components";
 import Theme from './src/themes/theme';
 
@@ -17,8 +19,10 @@ const GlobalStyles = createGlobalStyle`
 `
 
 export const wrapRootElement = ({ element }) => (
+    <Provider store={store}>
     <ThemeProvider theme={Theme}>
          <GlobalStyles/>
         {element}
     </ThemeProvider>
+    </Provider>
 )
