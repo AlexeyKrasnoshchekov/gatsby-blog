@@ -1,4 +1,5 @@
 {
+  "homepage": "http://alexburnitdown.github.io/gatsby-blog",
   "name": "gatsby-blog",
   "version": "1.0.0",
   "private": true,
@@ -8,9 +9,9 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
+    "develop": "gatsby build --prefix-paths && gh-pages -d public",
     "start": "gatsby develop",
-    "build": "gatsby build",
+    "build": "react-scripts build && cp build/index.html build/200.html",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
@@ -43,5 +44,8 @@
     "react-icons": "^4.3.1",
     "react-redux": "^7.2.5",
     "styled-components": "^5.3.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
   }
 }
